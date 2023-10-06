@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const parent = React.createElement('div', { id: 'parent' }, [
-  React.createElement('div', { id: 'child1' }, [
-    React.createElement('h1', {}, 'Batman'),
-    React.createElement('h2', {}, 'Superman'),
-  ]),
-  React.createElement('div', { id: 'child2' }, [
-    React.createElement('h1', {}, 'Bruce Wayne'),
-    React.createElement('h2', {}, 'Clark Kent'),
-  ]),
-]);
+const heading = React.createElement('h1', { id: 'heading' }, "I'm Batman");
+const jsxHeading = <h1 id="heading">I'm Superman</h1>;
 
-console.log(parent); // Object
+console.log(heading);
+console.log(jsxHeading);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent);
+root.render(jsxHeading);
