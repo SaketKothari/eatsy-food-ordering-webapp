@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FETCH_RESTAURANT_URL } from '../utils/constants';
 import RestaurantCard from './RestaurantCard';
+import Shimmer from './Shimmer';
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -13,11 +14,14 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(FETCH_RESTAURANT_URL);
     const json = await data.json();
-    console.log(json);
     setListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
