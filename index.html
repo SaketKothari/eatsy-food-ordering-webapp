@@ -6,8 +6,13 @@
     <title>Food ordering webapp</title>
   </head>
   <body>
-    <div id="root">
-      <h1>Hello World</h1>
-    </div>
+    <div id="root"></div>
+    <script>
+      const heading = document.createElement('h1');
+      heading.innerHTML = 'Hello World from JavaScript';
+      // Put these heading into root
+      const root = document.getElementById('root');
+      root.appendChild(heading); // appendChild() is there on every HTML node
+    </script>
   </body>
 </html>
