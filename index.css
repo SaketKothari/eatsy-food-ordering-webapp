@@ -50,6 +50,8 @@
 
 .res-card:hover {
   transform: scale(1.05);
+  border: 1px solid black;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .res-card img {
@@ -71,4 +73,28 @@
   font-size: 1rem;
   text-align: center;
   color: #79524b;
+}
+
+.res-info {
+  width: 100%;
+  text-align: center;
+  padding: 0.625rem 0;
+}
+
+.res-info h3 {
+  margin: 0.625rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: black;
+}
+
+.res-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.res-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
 }

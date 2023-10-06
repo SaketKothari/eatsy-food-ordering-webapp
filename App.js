@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import logo from './logo.png';
+import { resList } from './mockData';
 
 const Header = () => {
   return (
@@ -20,17 +21,27 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = ({ resName, cuisine }) => {
+const RestaurantCard = (props) => {
+  const { resData } = props;
+
   return (
-    <div className="res-card" style={{ backgroundColor: '#f0f0f0' }}>
+    <div className="res-card">
       <img
         className="res-logo"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ysvhwgn1iluc4j4mmvnc"
-        alt="restaurant-image"
+        src={
+          'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/' +
+          resData.data.cloudinaryImageId
+        }
       />
-      <h3>{resName}</h3>
-      <h4>{cuisine}</h4>
-      <h4>4.3 stars</h4>
+      <div className="res-info">
+        <h3>{resData.data.name}</h3>
+        <h3>{resData.data.cuisines.join(', ')}</h3>
+        <div className="res-details">
+          <h4>{resData.data.avgRating} stars</h4>
+          <h4>{resData.data.costForTwo / 100} FOR TWO</h4>
+          <h4>{resData.data.deliveryTime} minutes</h4>
+        </div>
+      </div>
     </div>
   );
 };
@@ -40,14 +51,12 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard
-          resName="La Pinoz Pizza"
-          cuisine="Pizza, Slice, Garlic Bread"
-        />
-        <RestaurantCard
-          resName="Dominos Pizza"
-          cuisine="Pizza, Cheese Dominator"
-        />
+        <RestaurantCard resData={resList[0]} />
+        <RestaurantCard resData={resList[1]} />
+        <RestaurantCard resData={resList[2]} />
+        <RestaurantCard resData={resList[3]} />
+        <RestaurantCard resData={resList[4]} />
+        <RestaurantCard resData={resList[5]} />
       </div>
     </div>
   );
