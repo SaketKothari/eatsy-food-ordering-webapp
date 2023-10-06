@@ -1,10 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { resList } from '../utils/mockData';
+import { FETCH_RESTAURANT_URL } from '../utils/constants';
 import RestaurantCard from './RestaurantCard';
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(FETCH_RESTAURANT_URL);
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   return (
     <div className="body">
@@ -15,7 +28,7 @@ const Body = () => {
             // Filter logic
             setListOfRestaurants();
             const filteredList = listOfRestaurants.filter(
-              (res) => res.data.avgRating > 4
+              (res) => res.info.avgRating > 4
             );
             setListOfRestaurants(filteredList);
           }}
@@ -27,7 +40,10 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard
+            key={restaurant?.info.id}
+            resData={restaurant?.info}
+          />
         ))}
       </div>
     </div>
