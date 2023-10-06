@@ -99,9 +99,20 @@
   font-size: 0.9rem;
 }
 
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
 .filter-btn {
   margin: 0.625rem;
   cursor: pointer;
+  margin: 30px 100px;
+  padding: 10px 20px;
+  position: absolute;
+  top: 65px;
+  left: 220px;
 }
 
 .shimmer-container {
@@ -140,4 +151,37 @@ button {
 
 button:hover {
   background-color: #4c2a5c;
+}
+
+search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  padding: 12px 20px;
+  margin: 8px 2px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-btn {
+  width: auto;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #49217d;
+  color: white;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #4c2a5c;
+}
+
+.search-input:focus {
+  border: 2px solid #555;
 }
