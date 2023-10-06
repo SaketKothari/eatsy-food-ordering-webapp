@@ -1,11 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const heading = React.createElement('h1', { id: 'heading' }, "I'm Batman");
-const jsxHeading = <h1 id="heading">I'm Superman</h1>;
+import logo from './logo.png';
 
-console.log(heading);
-console.log(jsxHeading);
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src={logo} alt="logo" />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(jsxHeading);
+root.render(<AppLayout />);
