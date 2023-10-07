@@ -27,7 +27,7 @@ const RestaurantCategoryItem = ({ items }) => {
               <img
                 className="h-20 w-20 flex-shrink-0 rounded object-contain outline-none dark:border-transparent sm:h-32 sm:w-32"
                 src={IMAGE_CDN_URL + item.card.info.imageId}
-                alt="meun-items image"
+                alt={item.card.info.name}
               />
               <div className="flex w-full flex-col justify-between pb-4">
                 <div className="flex w-full justify-between space-x-2 pb-2">
