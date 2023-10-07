@@ -11,29 +11,28 @@ class UserClass extends React.Component {
       },
     };
 
-    console.log(this.props.name + ' Child Constructor');
+    // console.log(this.props.name + ' Child Constructor');
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => {
-      console.log("I'm Batman");
-    }, 1000);
-    console.log(this.props.name + ' Child componentDidMount');
+    // this.timer = setInterval(() => {
+    //   console.log("I'm Batman");
+    // }, 1000);
+    // console.log(this.props.name + ' Child componentDidMount');
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate');
+    // console.log('componentDidUpdate');
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-    console.log('componentWillUnmount');
+    // console.log('componentWillUnmount');
   }
 
   render() {
     const { name, location } = this.state.userInfo;
-
-    console.log(this.props.name + ' Child Render');
+    // console.log(this.props.name + ' Child Render');
 
     return (
       <div className="user-card">
