@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { withIsOpenLabel } from './RestaurantCard';
 import Shimmer from './Shimmer';
 
 import useOnlineStatus from '../hooks/useOnlineStatus';
@@ -18,6 +18,7 @@ const Body = () => {
     setSearchText,
     topRatedRestaurants,
   } = useRestaurant();
+  const RestaurantCardIsOpen = withIsOpenLabel(RestaurantCard);
 
   if (onlineStatus === false) {
     return (
@@ -69,7 +70,11 @@ const Body = () => {
               key={restaurant?.info.id}
               to={'/restaurants/' + restaurant?.info.id}
             >
-              <RestaurantCard resData={restaurant?.info} />
+              {restaurant?.info.isOpen ? (
+                <RestaurantCardIsOpen resData={restaurant?.info} />
+              ) : (
+                <RestaurantCard resData={restaurant?.info} />
+              )}
             </Link>
           ))
         )}

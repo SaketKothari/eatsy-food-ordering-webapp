@@ -29,3 +29,21 @@ const RestaurantCard = (props) => {
 };
 
 export default RestaurantCard;
+
+// Higher order component
+export const withIsOpenLabel = (RestaurantCard) => {
+  // return a new component with a isOpen label on top of it
+  return (props) => {
+    // a component is a function which returns some piece of JSX
+    return (
+      <>
+        <div className="relative z-10 w-5 h-5">
+          <label className="absolute transform rotate-30 bg-slate-700 text-center text-white py-1 right-[-1.25rem] top-[1.25rem] w-[2.5rem] rounded-lg">
+            Open
+          </label>
+        </div>
+        <RestaurantCard {...props} />
+      </>
+    );
+  };
+};
