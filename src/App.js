@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 
 import Body from './components/Body';
 import Error from './components/Error';
+import Footer from './components/Footer';
 import Header from './components/Header';
 const Instamart = lazy(() => import('./components/Instamart'));
 import RestaurantMenu from './components/RestaurantMenu';
@@ -16,6 +17,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };
