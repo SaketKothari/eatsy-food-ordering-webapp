@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FETCH_RESTAURANT_URL } from '../utils/constants';
 import RestaurantCard from './RestaurantCard';
@@ -88,10 +89,12 @@ const Body = () => {
           <p>No results found</p>
         ) : (
           filterRestaurant.map((restaurant) => (
-            <RestaurantCard
+            <Link
               key={restaurant?.info.id}
-              resData={restaurant?.info}
-            />
+              to={'/restaurants/' + restaurant?.info.id}
+            >
+              <RestaurantCard resData={restaurant?.info} />
+            </Link>
           ))
         )}
       </div>
