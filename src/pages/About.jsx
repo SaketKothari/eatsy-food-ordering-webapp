@@ -18,7 +18,8 @@ class About extends Component {
       <div>
         <h1>About - Class based Component</h1>
         <h2>This is about page of our food ordering webapp</h2>
-        <UserClass name={'Batman (class)'} location={'Gotham (class)'} />
+        <UserClass name={'First Child'} location={'Gotham'} />
+        <UserClass name={'Second Child'} location={'Metropolis'} />
       </div>
     );
   }
