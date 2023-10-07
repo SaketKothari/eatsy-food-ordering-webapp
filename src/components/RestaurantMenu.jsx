@@ -24,6 +24,10 @@ const RestaurantMenu = () => {
         'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
     );
 
+  const toggleCategory = (index) => {
+    setShowIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
   return (
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
@@ -36,8 +40,8 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}
-          showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
+          showItems={index === showIndex}
+          toggleCategory={() => toggleCategory(index)}
         />
       ))}
     </div>
