@@ -185,3 +185,8 @@ search-container {
 .search-input:focus {
   border: 2px solid #555;
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}
