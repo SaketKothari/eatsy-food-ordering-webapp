@@ -14,15 +14,11 @@ class UserClass extends React.Component {
     console.log(this.props.name + ' Child Constructor');
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      console.log("I'm Batman");
+    }, 1000);
     console.log(this.props.name + ' Child componentDidMount');
-    // API Call
-    const data = await fetch('https://api.github.com/users/SaketKothari');
-    const json = await data.json();
-
-    this.setState({
-      userInfo: json,
-    });
   }
 
   componentDidUpdate() {
@@ -30,16 +26,17 @@ class UserClass extends React.Component {
   }
 
   componentWillUnmount() {
+    clearInterval(this.timer);
     console.log('componentWillUnmount');
   }
 
   render() {
-    const { name, location, avatar_url } = this.state.userInfo;
+    const { name, location } = this.state.userInfo;
+
     console.log(this.props.name + ' Child Render');
 
     return (
       <div className="user-card">
-        <img src={avatar_url} alt="avatar" />
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
       </div>
