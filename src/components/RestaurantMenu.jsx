@@ -9,6 +9,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null);
+  const dummy = 'Dummy data';
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -40,6 +41,7 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}
+          dummy={dummy}
           showItems={index === showIndex}
           toggleCategory={() => toggleCategory(index)}
         />

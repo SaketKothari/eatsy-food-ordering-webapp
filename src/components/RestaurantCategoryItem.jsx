@@ -1,7 +1,9 @@
 import { IMAGE_CDN_URL } from '../utils/constants';
 import { Plus, Heart } from 'lucide-react';
 
-const RestaurantCategoryItem = ({ items }) => {
+const RestaurantCategoryItem = ({ items, dummy }) => {
+  console.log(dummy);
+
   const truncateDescription = (description) => {
     if (description) {
       const words = description.split(' ');

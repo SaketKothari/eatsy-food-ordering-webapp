@@ -1,7 +1,6 @@
 import RestaurantCategoryItem from './RestaurantCategoryItem';
 
-const RestaurantCategory = ({ data, showItems, toggleCategory  }) => {
-
+const RestaurantCategory = ({ data, showItems, toggleCategory, dummy }) => {
   return (
     <>
       {/* Accordion Header */}
@@ -17,7 +16,9 @@ const RestaurantCategory = ({ data, showItems, toggleCategory  }) => {
         </div>
 
         {/* Accordion Body */}
-        {showItems && <RestaurantCategoryItem items={data.itemCards} />}
+        {showItems && (
+          <RestaurantCategoryItem dummy={dummy} items={data.itemCards} />
+        )}
       </div>
     </>
   );
