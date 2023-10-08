@@ -10,6 +10,11 @@
   "author": "Saket Kothari",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.15",
+    "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "parcel": "^2.9.3",
     "postcss": "^8.4.29",
     "process": "^0.11.10",
