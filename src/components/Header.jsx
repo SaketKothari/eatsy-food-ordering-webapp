@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Menu, User, X } from 'lucide-react';
+import { Menu, ShoppingBagIcon, User, X } from 'lucide-react';
 import { useContext, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import logo from '../assets/logo.png';
 import UserContext from '../context/UserContext';
 import useOnlineStatus from '../hooks/useOnlineStatus';
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.items);
   const onlineStatus = useOnlineStatus();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { loggedInUser } = useContext(UserContext);
@@ -32,10 +34,6 @@ const Header = () => {
       name: 'Instamart',
       to: '/instamart',
     },
-    {
-      name: 'Cart',
-      to: '#',
-    },
   ];
 
   return (
@@ -60,10 +58,21 @@ const Header = () => {
               </li>
             ))}
 
+            {/* Cart */}
+            <li className="space-x-1 md:space-x-3">
+              <div className="relative flex items-center">
+                <span className="absolute -top-1 -right-2 bg-orange-500 text-white flex justify-center items-center w-4 h-3 text-xs rounded-full">
+                  {cartItems.length}
+                </span>
+                <p className="mr-1 text-sm font-medium text-gray-800">Cart</p>
+                <ShoppingBagIcon className="h-4 w-4" />
+              </div>
+            </li>
+
             {/* Example for context */}
             <li className="space-x-1 md:space-x-3" aria-current="page">
               <div className="flex items-center">
-                <span className="mx-2.5 text-gray-800">
+                <span className="text-gray-800">
                   <User className="h-4 w-4" />
                 </span>
                 <span className="ml-1 text-sm font-medium text-gray-800 hover:underline">

@@ -1,8 +1,15 @@
 import { IMAGE_CDN_URL } from '../utils/constants';
 import { Plus, Heart } from 'lucide-react';
+import { useDispatch } from 'react-redux';
 
-const RestaurantCategoryItem = ({ items, dummy }) => {
-  console.log(dummy);
+import { addItem } from '../slices/cartSlice';
+
+const RestaurantCategoryItem = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   const truncateDescription = (description) => {
     if (description) {
@@ -56,6 +63,7 @@ const RestaurantCategoryItem = ({ items, dummy }) => {
                   <button
                     type="button"
                     className="flex items-center space-x-2 px-2 py-1 pl-0"
+                    onClick={() => handleAddItem(item)}
                   >
                     <Plus size={16} />
                     <span>Add</span>
