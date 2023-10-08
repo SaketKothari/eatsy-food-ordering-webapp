@@ -60,13 +60,15 @@ const Header = () => {
 
             {/* Cart */}
             <li className="space-x-1 md:space-x-3">
-              <div className="relative flex items-center">
-                <span className="absolute -top-1 -right-2 bg-orange-500 text-white flex justify-center items-center w-4 h-3 text-xs rounded-full">
-                  {cartItems.length}
-                </span>
-                <p className="mr-1 text-sm font-medium text-gray-800">Cart</p>
-                <ShoppingBagIcon className="h-4 w-4" />
-              </div>
+              <Link to="/cart">
+                <div className="relative flex items-center">
+                  <span className="absolute -top-1 -right-2 bg-orange-500 text-white flex justify-center items-center w-4 h-3 text-xs rounded-full">
+                    {cartItems.length}
+                  </span>
+                  <p className="mr-1 text-sm font-medium text-gray-800">Cart</p>
+                  <ShoppingBagIcon className="h-4 w-4" />
+                </div>
+              </Link>
             </li>
 
             {/* Example for context */}

@@ -1,14 +1,18 @@
 import { IMAGE_CDN_URL } from '../utils/constants';
-import { Plus, Heart } from 'lucide-react';
+import { Plus, Trash } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 
-import { addItem } from '../slices/cartSlice';
+import { addItem, removeItem } from '../slices/cartSlice';
 
 const RestaurantCategoryItem = ({ items }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
     dispatch(addItem(item));
+  };
+
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem(item));
   };
 
   const truncateDescription = (description) => {
@@ -53,8 +57,8 @@ const RestaurantCategoryItem = ({ items }) => {
                     <p className="text-lg font-semibold">
                       ₹
                       {item.card.info.price
-                        ? item.card.info.price / 100
-                        : item.card.info.defaultPrice / 100}
+                        ? (item.card.info.price / 100).toFixed(2)
+                        : (item.card.info.defaultPrice / 100).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -71,9 +75,10 @@ const RestaurantCategoryItem = ({ items }) => {
                   <button
                     type="button"
                     className="flex items-center space-x-2 px-2 py-1"
+                    onClick={() => handleRemoveItem(item)}
                   >
-                    <Heart size={16} />
-                    <span>Add to favorites</span>
+                    <Trash size={16} />
+                    <span>Remove</span>
                   </button>
                 </div>
               </div>
