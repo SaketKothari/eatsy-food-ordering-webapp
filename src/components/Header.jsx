@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, User, X } from 'lucide-react';
+import { useContext, useState } from 'react';
 
 import logo from '../assets/logo.png';
+import UserContext from '../context/UserContext';
 import useOnlineStatus from '../hooks/useOnlineStatus';
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { loggedInUser } = useContext(UserContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -57,6 +59,18 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+
+            {/* Example for context */}
+            <li className="space-x-1 md:space-x-3" aria-current="page">
+              <div className="flex items-center">
+                <span className="mx-2.5 text-gray-800">
+                  <User className="h-4 w-4" />
+                </span>
+                <span className="ml-1 text-sm font-medium text-gray-800 hover:underline">
+                  {loggedInUser}
+                </span>
+              </div>
+            </li>
           </ul>
         </div>
         <div className="hidden lg:block">
@@ -66,6 +80,8 @@ const Header = () => {
           >
             Online: {onlineStatus ? '🟢' : '🔴'}
           </button>
+
+          {/* <li className="font-bold">{loggedInUser}</li> */}
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -95,15 +111,15 @@ const Header = () => {
                 <div className="mt-6">
                   <nav className="grid gap-y-4">
                     {menuItems.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={`/${item.name}`}
                         className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
                       >
                         <span className="ml-3 text-base font-medium text-gray-900">
                           {item.name}
                         </span>
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>

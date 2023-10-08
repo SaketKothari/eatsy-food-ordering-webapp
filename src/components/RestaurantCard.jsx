@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import { IMAGE_CDN_URL } from '../utils/constants';
+import UserContext from '../context/UserContext';
 
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = resData;
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="relative h-[400px] w-[300px] rounded-md">
@@ -21,6 +24,9 @@ const RestaurantCard = (props) => {
           </span>
           <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
             {costForTwo}
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+            {loggedInUser}
           </span>
         </div>
       </div>
