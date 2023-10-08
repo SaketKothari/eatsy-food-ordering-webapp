@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 
@@ -12,13 +12,27 @@ import Header from './components/Header';
 const Instamart = lazy(() => import('./components/Instamart'));
 import RestaurantMenu from './components/RestaurantMenu';
 
+import UserContext from './context/UserContext';
+
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  // Authentication code
+  useEffect(() => {
+    // Make an API Call to send username and password
+    const data = {
+      name: 'John Doe',
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
