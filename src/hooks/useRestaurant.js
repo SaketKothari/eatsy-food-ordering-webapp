@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FETCH_RESTAURANT_URL } from '../utils/constants';
 
 const useRestaurant = () => {
+  const cardIndex = window.innerWidth >= 400 ? 2 : 3;
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [notFound, setNotFound] = useState(false);
@@ -16,7 +17,7 @@ const useRestaurant = () => {
       const data = await fetch(FETCH_RESTAURANT_URL);
       const json = await data.json();
       const restaurants =
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        json?.data?.cards[cardIndex]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
       setListOfRestaurants(restaurants);
       setFilterRestaurant(restaurants);

@@ -6,6 +6,7 @@ import Shimmer from './Shimmer';
 import useRestaurantMenu from '../hooks/useRestaurantMenu';
 
 const RestaurantMenu = () => {
+  const cardIndex = window.innerWidth >= 400 ? 2 : 3;
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null);
@@ -18,12 +19,13 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
-  const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.card?.['@type'] ===
-        'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
-    );
+  const categories = resInfo?.cards[
+    cardIndex
+  ]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    (c) =>
+      c.card?.card?.['@type'] ===
+      'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
+  );
 
   const toggleCategory = (index) => {
     setShowIndex((prevIndex) => (prevIndex === index ? null : index));

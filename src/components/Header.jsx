@@ -124,7 +124,7 @@ const Header = () => {
                     {menuItems.map((item) => (
                       <Link
                         key={item.name}
-                        to={`/${item.name}`}
+                        to={item.to}
                         className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50"
                       >
                         <span className="ml-3 text-base font-medium text-gray-900">
@@ -132,8 +132,23 @@ const Header = () => {
                         </span>
                       </Link>
                     ))}
+                    {/* Cart */}
+                    <div className="mb-4 space-x-1">
+                      <Link to="/cart">
+                        <div className="ml-2 relative flex items-center">
+                          <span className="absolute top-0 left-11 bg-orange-500 text-white flex justify-center items-center w-2 h-3 text-xs rounded-full">
+                            {cartItems.length}
+                          </span>
+                          <p className="mr-1 text-sm font-medium text-gray-800">
+                            Cart
+                          </p>
+                          <ShoppingBagIcon className="h-4 w-4" />
+                        </div>
+                      </Link>
+                    </div>
                   </nav>
                 </div>
+
                 <button
                   type="button"
                   className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
