@@ -33,6 +33,7 @@ const RestaurantCategoryItem = ({ items }) => {
       <ul className="flex flex-col divide-y divide-gray-200">
         {items.map((item) => (
           <li
+            data-testid="foodItems"
             className="flex flex-col py-6 sm:flex-row sm:justify-between"
             key={item.card.info.id}
           >
