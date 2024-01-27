@@ -26,7 +26,7 @@ const Body = () => {
     );
   }
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -63,10 +63,10 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-5">
-        {filterRestaurant.length === 0 && notFound ? (
+        {filterRestaurant?.length === 0 && notFound ? (
           <p>No results found</p>
         ) : (
-          filterRestaurant.map((restaurant) => (
+          filterRestaurant?.map((restaurant) => (
             <Link
               key={restaurant?.info.id}
               to={'/restaurants/' + restaurant?.info.id}

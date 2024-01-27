@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FETCH_RESTAURANT_URL } from '../utils/constants';
 
 const useRestaurant = () => {
-  const cardIndex = window.innerWidth >= 400 ? 2 : 3;
+  const cardIndex = window.innerWidth >= 400 ? 4 : 3;
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [notFound, setNotFound] = useState(false);
@@ -19,6 +19,8 @@ const useRestaurant = () => {
       const restaurants =
         json?.data?.cards[cardIndex]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+      console.log(restaurants);
+
       setListOfRestaurants(restaurants);
       setFilterRestaurant(restaurants);
     } catch (error) {
