@@ -3,6 +3,7 @@ Eatsy is a dynamic and user-friendly restaurant directory application, designed 
 this webapp offers an intuitive and visually appealing platform for users to discover, explore, and interact with restaurants.
 
 ### [Live Site](https://eatsy-webapp.vercel.app/)
+[CORS Chrome Extension](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
 
 <img src="https://github.com/SaketKothari/eatsy-webapp/assets/81709725/0e15e579-5eef-468f-800b-8ad6cbfa956a" />
 
