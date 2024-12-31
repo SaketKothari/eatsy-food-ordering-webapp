@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FETCH_RESTAURANT_URL } from '../utils/constants';
 
 const useRestaurant = () => {
-  const cardIndex = window.innerWidth >= 400 ? 4 : 3;
+  const cardIndex = window.innerWidth >= 400 ? 1 : 2;
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [notFound, setNotFound] = useState(false);
