@@ -10,7 +10,7 @@ const RestaurantCategory = ({ data, showItems, toggleCategory, dummy }) => {
           onClick={toggleCategory}
         >
           <span className="font-bold text-lg">
-            {data.title} ({data.itemCards.length})
+            {data.title} ({data?.itemCards?.length})
           </span>
           <span>{showItems ? '⬆️' : '⬇️'}</span>
         </div>
