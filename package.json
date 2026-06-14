@@ -4,6 +4,8 @@
   "description": "A food ordering webapp built using React.js",
   "scripts": {
     "start": "parcel index.html",
+    "server": "node server.js",
+    "dev": "concurrently \"npm run start\" \"npm run server\"",
     "build": "parcel build index.html",
     "test": "jest",
     "watch-test": "jest --watch"
@@ -26,6 +28,9 @@
   "dependencies": {
     "@babel/preset-react": "^7.22.15",
     "@reduxjs/toolkit": "^1.9.7",
+    "concurrently": "^10.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "lucide-react": "^0.284.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
